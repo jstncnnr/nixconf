@@ -7,6 +7,8 @@
       den.provides.mutual-provider
 
       (den.provides.user-shell "zsh")
+
+      den.aspects._1password
     ];
   };
 }

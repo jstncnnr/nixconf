@@ -21,7 +21,6 @@
         ];
 
         casks = [
-          "1password"
           "brave-browser"
           "claude"
           "claude-code"
