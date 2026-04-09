@@ -1,10 +1,13 @@
-{ inputs, self, ... }:
-
 {
-  flake.darwinConfigurations.laptop = inputs.nix-darwin.lib.darwinSystem {
-    modules = [
-      self.darwinModules.laptopConfiguration
-      self.darwinModules.defaults
-    ];
+  den.hosts.aarch64-darwin.laptop = {
+    hostName = "Justins-Macbook-Pro";
+
+    users = {
+      justin = {
+        classes = [
+          "homeManager"
+        ];
+      };
+    };
   };
 }

@@ -1,42 +1,13 @@
 {
-  flake.darwinModules.defaults =
-    { pkgs, ... }:
-    {
-      environment.systemPackages = [
-        pkgs.nil
-        pkgs.nixd
-      ];
-
-      homebrew = {
-        enable = true;
-        enableZshIntegration = true;
-        onActivation.cleanup = "uninstall";
-
-        brews = [
-
-        ];
-
-        casks = [
-          "1password"
-          "brave-browser"
-          "claude"
-          "claude-code"
-          "discord"
-        ];
-
-        masApps = {
-          Magnet = 441258766;
-        };
-      };
-
+  den.aspects.justin = {
+    provides.to-hosts.darwin = {
       programs = {
+        direnv.enable = true;
+
         zsh = {
-          enable = true;
           enableAutosuggestions = true;
           enableSyntaxHighlighting = true;
         };
-
-        direnv.enable = true;
       };
 
       system.defaults = {
@@ -58,4 +29,5 @@
         };
       };
     };
+  };
 }

@@ -1,29 +1,44 @@
+{ den, ... }:
 {
-  flake.darwinModules.laptopConfiguration =
-    { pkgs, ... }:
-    {
-      users.users = {
-        justin = {
-          description = "Justin Conner";
-          shell = pkgs.zsh;
+  den.aspects.laptop = {
+    includes = [
+      den.provides.hostname
+    ];
+
+    darwin =
+      { pkgs, ... }:
+      {
+        environment.systemPackages = [
+          pkgs.nil
+          pkgs.nixd
+        ];
+
+        nix = {
+          # Let Determinate Systems manage the nix install
+          enable = false;
+        };
+
+        homebrew = {
+          enable = true;
+          enableZshIntegration = true;
+          onActivation.cleanup = "uninstall";
+
+          brews = [
+
+          ];
+
+          casks = [
+            "1password"
+            "brave-browser"
+            "claude"
+            "claude-code"
+            "discord"
+          ];
+
+          masApps = {
+            Magnet = 441258766;
+          };
         };
       };
-
-      environment.systemPackages = [
-        pkgs.nil
-        pkgs.nixd
-      ];
-
-      nixpkgs.hostPlatform = "aarch64-darwin";
-      nix = {
-        # Let Determinate Systems manage the nix install
-        enable = false;
-      };
-
-      system = {
-        primaryUser = "justin";
-
-        stateVersion = 6;
-      };
-    };
+  };
 }
