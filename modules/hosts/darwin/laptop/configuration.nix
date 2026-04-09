@@ -5,40 +5,33 @@
       den.provides.hostname
     ];
 
-    darwin =
-      { pkgs, ... }:
-      {
-        environment.systemPackages = [
-          pkgs.nil
-          pkgs.nixd
+    darwin = {
+      nix = {
+        # Let Determinate Systems manage the nix install
+        enable = false;
+      };
+
+      homebrew = {
+        enable = true;
+        enableZshIntegration = true;
+        onActivation.cleanup = "uninstall";
+
+        brews = [
+
         ];
 
-        nix = {
-          # Let Determinate Systems manage the nix install
-          enable = false;
-        };
+        casks = [
+          "1password"
+          "brave-browser"
+          "claude"
+          "claude-code"
+          "discord"
+        ];
 
-        homebrew = {
-          enable = true;
-          enableZshIntegration = true;
-          onActivation.cleanup = "uninstall";
-
-          brews = [
-
-          ];
-
-          casks = [
-            "1password"
-            "brave-browser"
-            "claude"
-            "claude-code"
-            "discord"
-          ];
-
-          masApps = {
-            Magnet = 441258766;
-          };
+        masApps = {
+          Magnet = 441258766;
         };
       };
+    };
   };
 }
