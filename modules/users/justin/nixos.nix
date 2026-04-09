@@ -6,6 +6,8 @@
         environment.systemPackages = [
           pkgs.nil
           pkgs.nixd
+
+          pkgs.brave
         ];
 
         programs = {

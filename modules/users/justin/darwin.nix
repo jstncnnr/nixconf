@@ -8,6 +8,10 @@
           pkgs.nixd
         ];
 
+        homebrew.casks = [
+          "brave-browser"
+        ];
+
         programs = {
           direnv.enable = true;
 

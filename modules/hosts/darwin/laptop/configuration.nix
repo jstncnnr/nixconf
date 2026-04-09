@@ -21,7 +21,6 @@
         ];
 
         casks = [
-          "brave-browser"
           "claude"
           "claude-code"
           "discord"
