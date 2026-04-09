@@ -1,10 +1,11 @@
-{ inputs, self, ... }:
-
 {
-  flake.nixosConfigurations.desktop = inputs.nixpkgs.lib.nixosSystem {
-    modules = [
-      self.nixosModules.desktopConfiguration
-      self.nixosModules.defaults
-    ];
+  den.hosts.x86_64-linux.desktop = {
+    hostName = "nixos";
+
+    users.justin = {
+      classes = [
+        "homeManager"
+      ];
+    };
   };
 }
