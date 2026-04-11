@@ -10,20 +10,36 @@
         ])
       ];
 
-      nixos = {
-        programs = {
-          _1password.enable = true;
-          _1password-gui = {
-            enable = true;
+      nixos =
+        { pkgs, ... }:
+        {
+          programs = {
+            _1password.enable = true;
+            _1password-gui = {
+              enable = true;
 
-            polkitPolicyOwners = lib.pipe host.users [
-              lib.attrValues
-              (lib.filter (u: u.isNormalUser or true))
-              (map (u: u.userName))
-            ];
+              polkitPolicyOwners = lib.pipe host.users [
+                lib.attrValues
+                (lib.filter (u: u.isNormalUser or true))
+                (map (u: u.userName))
+              ];
+            };
+          };
+
+          systemd.user.services."1password" = {
+            description = "1Password auto start";
+
+            after = [ "graphical-session.target" ];
+            partOf = [ "graphical-session.target" ];
+            wantedBy = [ "graphical-session.target" ];
+
+            serviceConfig = {
+              ExecStart = "${pkgs._1password-gui}/bin/1password --silent";
+              Restart = "on-failure";
+              RestartSec = 5;
+            };
           };
         };
-      };
 
       homeManager =
         { pkgs, ... }:
