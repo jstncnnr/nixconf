@@ -9,6 +9,7 @@
       (den.provides.user-shell "zsh")
 
       den.aspects._1password
+      den.aspects.editors
     ];
   };
 }

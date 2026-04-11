@@ -29,6 +29,7 @@
           };
         };
 
+        time.timeZone = "America/Denver";
         networking.networkmanager.enable = true;
 
         services = {
