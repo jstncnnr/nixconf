@@ -3,6 +3,8 @@
   den.aspects.desktop = {
     includes = [
       den.provides.hostname
+
+      den.aspects.gaming
     ];
 
     nixos =
