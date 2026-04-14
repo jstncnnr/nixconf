@@ -20,6 +20,9 @@
 
     darwin = {
       homebrew.casks = [
+        "claude"
+        "claude-code@latest"
+        "jetbrains-toolbox"
         "zed"
       ];
     };

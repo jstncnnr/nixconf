@@ -21,8 +21,6 @@
         ];
 
         casks = [
-          "claude"
-          "claude-code"
           "discord"
         ];
 
