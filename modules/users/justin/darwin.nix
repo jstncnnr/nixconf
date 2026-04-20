@@ -10,6 +10,9 @@
 
         homebrew.casks = [
           "brave-browser"
+          "microsoft-office"
+          "microsoft-teams"
+          "microsoft-edge"
         ];
 
         programs = {
