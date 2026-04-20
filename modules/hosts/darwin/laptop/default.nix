@@ -8,12 +8,6 @@
           "homeManager"
         ];
       };
-
-      "justin.oomb" = {
-        classes = [
-          "homeManager"
-        ];
-      };
     };
   };
 }
