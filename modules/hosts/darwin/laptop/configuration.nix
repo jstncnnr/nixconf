@@ -3,6 +3,8 @@
   den.aspects.laptop = {
     includes = [
       den.provides.hostname
+
+      den.aspects.aerospace
     ];
 
     darwin = {
@@ -19,14 +21,6 @@
         brews = [
 
         ];
-
-        casks = [
-          "discord"
-        ];
-
-        masApps = {
-          Magnet = 441258766;
-        };
       };
     };
   };
