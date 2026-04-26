@@ -4,6 +4,7 @@
     includes = [
       den.provides.hostname
 
+      den.aspects.niri
       den.aspects.gaming
     ];
 
@@ -40,15 +41,6 @@
           pipewire = {
             enable = true;
             pulse.enable = true;
-          };
-
-          displayManager.gdm = {
-            enable = true;
-            autoSuspend = false;
-          };
-
-          desktopManager.gnome = {
-            enable = true;
           };
 
           flatpak.enable = true;
