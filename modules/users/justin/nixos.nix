@@ -1,5 +1,10 @@
+{ den, ... }:
 {
   den.aspects.justin = {
+    includes = [
+      (den.provides.unfree [ "microsoft-edge" ])
+    ];
+
     provides.to-hosts.nixos =
       { pkgs, ... }:
       {
@@ -8,6 +13,7 @@
           pkgs.nixd
 
           pkgs.brave
+          pkgs.microsoft-edge
         ];
 
         programs = {
